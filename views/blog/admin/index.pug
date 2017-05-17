@@ -1,0 +1,15 @@
+extends ../../layout
+block head
+  title blog administration - bclindner
+block content
+  h1 blog administration
+  a(href='/blog-admin/create'): button create new post
+  h2 recent posts
+  ul
+  each post in recentPosts
+    li
+      a(href='/blog/'+post.slug)=post.slug+' ('+post.title+')'
+      form(method='post',action='/blog-admin/delete')
+        input(type='hidden',name='slug',value=post.slug)
+        input(type='submit',value='delete post')
+        a(href='/blog-admin/update/'+post.slug): input(type='button',value='update post')

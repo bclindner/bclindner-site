@@ -1,0 +1,39 @@
+{
+  "name": "bclindner-site",
+  "version": "1.0.0",
+  "description": "Personal site repo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bclindner/bclindner-site.git"
+  },
+  "keywords": [
+    "website",
+    "express",
+    "sequelize",
+    "heroku"
+  ],
+  "author": "bclindner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bclindner/bclindner-site/issues"
+  },
+  "homepage": "https://github.com/bclindner/bclindner-site#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "helmet": "^3.6.0",
+    "pg": "^6.2.2",
+    "pg-hstore": "^2.3.2",
+    "pug": "^2.0.0-rc.1",
+    "sequelize": "^3.30.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2"
+  }
+}

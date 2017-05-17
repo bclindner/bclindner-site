@@ -1,0 +1,99 @@
+// bclindner SASS source
+$width: 60%
+$max-width: 1024px
+$accent: #875fd7
+$transition-time: 0.15s
+@import url('https://fonts.googleapis.com/css?family=Assistant:200');
+body
+  margin: 0
+  font-family: 'Assistant', sans-serif
+  font-size: 1.25em
+  min-height: 100vh
+header
+  width: 100%
+  margin: 0 auto
+  padding: 0
+  background-color: $accent
+  color: white
+  a
+    color: white
+    text-decoration: none
+  h1, nav, ul, li
+    display: inline
+    margin: 0
+    padding: 0
+  ul
+    list-style-type: none
+    float: right
+    margin: 0.5em 0 0.5em 0
+  li a
+    padding: 28px 8px
+    &:hover
+      box-shadow: inset 0 -8px 16px 0 darken($accent,10%)
+      //transition: $transition-time
+.wrapper, main
+  width: $width
+  max-width: $max-width
+  margin: 0 auto
+  padding: 8px
+h1
+  padding: 0
+  margin: 0
+// blog
+.blog-metadata
+  .title, .tagline, .byline, .dateline
+    margin: 2px auto
+  .title
+    font-size: 1.5em
+    a
+      color: black
+      text-decoration: none
+      &:hover
+        color: #aaa
+        transition: $transition-time
+.blog-metadata
+  .byline
+    float: left
+  .dateline
+    float: right
+.blog-content
+  margin-top: 3em
+  clear: both
+// errors
+.pageError
+  text-align: center
+  text-size: 4em
+// button
+button
+  background-color: #ddd
+  border: none
+  margin: 1em 0
+  padding: 1em
+  &:hover
+    background-color: #bbb
+    transition: $transition-time
+// form stuff
+fieldset
+  border: none
+  margin: 1em 
+textarea, label
+  display: block
+  margin: 8px 0
+input
+  padding: 8px
+input>.submit
+    text-align: center
+li form input
+  padding: 2px
+  margin: 2px
+//
+main a
+  color: #444
+  &:visited
+    color: #222
+  &:hover
+    color: #aaa
+@media screen and (max-width: 768px)
+  .wrapper, main
+    width: 100%
+    

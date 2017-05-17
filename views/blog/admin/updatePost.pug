@@ -1,0 +1,20 @@
+extends ../../layout
+block head
+  title update post - bclindner
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.0/tinymce.min.js')
+  script.
+    tinymce.init({selector: '#article-content'})
+block content
+  h1 update post
+  form(method='post',action='/blog-admin/update')
+    fieldset
+      label(for='title') Title:
+      input(type='text', name='title', value=post.title, required)
+      label(for='author') Author:
+      input(type='text', name='author', value=post.author,required)
+      input(type='hidden', name='slug', value=post.slug) 
+    fieldset
+      label(for='content') Content:
+      textarea(name='content', id='article-content')=post.content
+    fieldset
+      input(class='submit', type='submit', value='Update Post')

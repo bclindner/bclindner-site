@@ -1,0 +1,15 @@
+extends ../layout
+block head
+  title blog - bclindner
+block content
+  each post in posts
+    article
+      section.blog-metadata
+        h1.title
+          a(href='blog/'+post.slug)=post.title
+        p.byline=post.author
+        p.dateline=post.createdAt
+      section.blog-content!=post.content
+      a(href='blog/'+post.slug)
+        button full article &rarr;
+    hr
