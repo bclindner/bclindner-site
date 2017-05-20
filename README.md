@@ -37,22 +37,3 @@ The site code is set up with the following structure:
 * `index.js`: initial code
 
 Keep this in mind when reading and working with this code.
-
-## Sitemap
-
-* `/` is the index page, and provides an introduction and recent blog posts.
-* `/projects` is my portfolio - it provides all of my public projects and details.
-  * `/projects/projectName` performs multiple functions:
-    * *(requires authentication)* GETting the project gets the project from the DB and renders it.
-    * *(requires authentication)* projecting the project updates the project with information given in the request.
-    * *(requires authentication)* DELETE-ing the project removes the project from the database.
-    * *(requires authentication)* PUTting the project creates a new project from the request data - this request fails if a project already exists.
-    * `/projects/admin` provides a basic administrative interface, allowing posts to be controlled with the given APIs.
-* `/downloads` provides a list of downloads and links to repositories, and is a static page.
-* `/blog` provides an index of the blog system, and lists previews of the 10 most recent posts, with pagination to allow all posts to be viewed.
-  * `/blog/post/postName` performs multiple functions:
-    * *(requires authentication)* GETting the post gets the post from the DB and renders it.
-    * *(requires authentication)* PUTting the post creates a new post from the request data - this request fails if a post already exists.
-    * *(requires authentication)* DELETE-ing the post removes the post from the database.
-    * *(requires authentication)* PUTting the post creates a new post - this request fails if a post already exists.
-  * `blog/admin` provides a basic administrative interface, allowing posts to be controlled with the given APIs.
