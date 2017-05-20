@@ -12,7 +12,16 @@ This is a website written in node.js. You can usually find it at [bclindner.com]
   * Sequelize ORM interacting with PostgreSQL using simple, readable business code at backend
   * CRUD, REST, all those buzzwords
 
+## Installing and Using
 
+This site requires a number of dependencies - use [Yarn](https://yarnpkg.com) to install them:
+
+`yarn install`
+
+Additionally, this site requires a PostgreSQL installation. This package is configured to use a local development server and Heroku in production - this can be changed in the config.json file.
+
+Starting the server is as easy as typing `yarn start`, or `node index.js`.
+`
 ## Code structure
 
 The site code is set up with the following structure:
