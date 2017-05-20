@@ -6,7 +6,7 @@ block head
     tinymce.init({selector: '#article-content'})
 block content
   h1 create post
-  form(method='post',action='/blog-admin/create')
+  form(method='post',action='/blog/admin/create')
     fieldset
       label(for='title') Title:
       input(type='text', name='title', placeholder='Title',required)

@@ -2,10 +2,11 @@ extends ../layout
 block head
   title=title + ' - bclindner'
 block content
-  a(href='/blog'): button &larr; back to blog
   article
     section.blog-metadata
-      h1.title=title
-      p.byline=author
-      p.dateline=createdAt
-    section.blog-content!=content
+      h1.title=post.title
+      p.byline=post.author
+      p.dateline=post.createdAt
+    section.blog-content!=post.content
+  a(href='/blog'): button &larr; back to blog
+  hr

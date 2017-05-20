@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('BlogPosts', {
+    return queryInterface.createTable('blogposts', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,9 +13,6 @@ module.exports = {
       },
       author: {
         type: Sequelize.STRING
-      },
-      publishDate: {
-        type: Sequelize.DATE
       },
       slug: {
         type: Sequelize.STRING
@@ -34,6 +31,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('BlogPosts');
+    return queryInterface.dropTable('blogposts');
   }
 };

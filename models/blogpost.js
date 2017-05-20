@@ -1,9 +1,8 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var BlogPost = sequelize.define('BlogPost', {
+  var blogpost = sequelize.define('blogpost', {
     title: DataTypes.STRING,
     author: DataTypes.STRING,
-    publishDate: DataTypes.DATE,
     slug: DataTypes.STRING,
     content: DataTypes.TEXT
   }, {
@@ -13,5 +12,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return BlogPost;
+  return blogpost;
 };

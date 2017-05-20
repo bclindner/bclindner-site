@@ -23,6 +23,7 @@
   "homepage": "https://github.com/bclindner/bclindner-site#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "compression": "^1.6.2",
     "express": "^4.15.2",
     "helmet": "^3.6.0",
     "pg": "^6.2.2",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.3.1",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.1.2",
     "mocha": "^3.4.1"
