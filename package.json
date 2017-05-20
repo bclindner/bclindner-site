@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "gulp"
   },
   "repository": "git+https://github.com/bclindner/bclindner-site.git",
   "keywords": [
@@ -30,8 +31,10 @@
     "sequelize": "^3.30.4"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^2.1.2"
+    "gulp-uglify": "^2.1.2",
+    "mocha": "^3.4.1"
   }
 }
