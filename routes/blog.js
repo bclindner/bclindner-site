@@ -47,7 +47,7 @@ module.exports = function (app, models) {
       raw: true
     }).then(post => {
       post.createdAt = dateFormat(post.createdAt, 'd mmmm yyyy')
-      res.render('blog/post', {post: post})
+      res.render('blog/viewpost', {post: post})
     })
   })
 

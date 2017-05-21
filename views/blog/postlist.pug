@@ -2,16 +2,12 @@ extends ../layout
 block head
   title blog - bclindner
 block content
+  h1 blog
+  hr
   each post in posts
-    article(id=post.slug)
-      section.blog-metadata
-        h1.title
-          a(href='../post/'+post.slug)=post.title
-        p.byline=post.author
-        p.dateline=post.createdAt
-      section.blog-content!=post.content
-      a(href='../post/'+post.slug)
-        button full article &rarr;
+    include post
+    a(href='../post/'+post.slug)
+      button full article &rarr;
     hr
   p.center='page '+page
   .paginator
