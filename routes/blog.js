@@ -12,6 +12,9 @@ module.exports = function (app, models) {
   app.get('/blog/page/:page', (req, res) => {
     var limit = 10
     var page = parseInt(req.params.page)
+    if (page <= 0) {
+      res.redirect('/blog/page/1')
+    }
     var offset = (req.params.page - 1) * limit
     post.findAndCountAll({
       order: [['createdAt', 'DESC']],
@@ -20,8 +23,7 @@ module.exports = function (app, models) {
       raw: true
     }).then(result => {
       var posts = result.rows
-      var countNext = result.count - (offset + 1)
-      var countPrev = result.count - (result.rows.length + 1)
+      var countNext = result.count - offset - result.rows.length
       for (var i = 0; i < posts.length; i++) {
         // format date
         posts[i].createdAt = dateFormat(posts[i].createdAt, 'd mmmm yyyy')
@@ -32,9 +34,11 @@ module.exports = function (app, models) {
         posts: posts,
         count: result.count,
         next: countNext,
-        prev: countPrev,
         page: page
       })
+    }).catch((err) => {
+      console.log(err)
+      res.send(500).render('error', {code: 500})
     })
   })
 
@@ -68,7 +72,7 @@ module.exports = function (app, models) {
   // blog post submission
   app.post('/blog/admin/create', bodyParser.urlencoded({extended: false}), (req, res) => {
     post.create(req.body).then(() => {
-      res.redirect('/blog/post/' + req.body.slug)
+      res.redirect('/blog/admin')
     })
   })
   // blog post deletion

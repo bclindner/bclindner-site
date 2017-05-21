@@ -2,4 +2,10 @@ extends ../layout
 block head
   title=post.title + ' - bclindner'
 block content
+  p.breadcrumbs
+    a(href='/') bclindner
+    |  &rsaquo;&nbsp;
+    a(href='..') blog
+    |  &rsaquo;&nbsp;
+    a(href=post.slug)=post.slug
   include post
