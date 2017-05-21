@@ -20,6 +20,8 @@ require('./routes/static.js')(app)
 // blog routes
 require('./routes/blog.js')(app, models)
 // TODO: project routes
+// error routes
+require('./routes/errors.js')(app)
 
 // sync the database then activate the server
 console.log('syncing database...')
