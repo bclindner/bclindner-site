@@ -1,8 +1,7 @@
 extends ../../layout
 block head
   title update post - bclindner
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.0/tinymce.min.js')
-  include tinymce
+  include editor
 block content
   h1 update post
   form(method='post',action='/blog/admin/update')
@@ -19,3 +18,4 @@ block content
       textarea(name='content', id='article-content')=post.content
     fieldset
       input(class='submit', type='submit', value='Update Post')
+  hr

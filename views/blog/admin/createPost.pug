@@ -1,8 +1,7 @@
 extends ../../layout
 block head
   title create post - bclindner
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.0/tinymce.min.js')
-  include tinymce
+  include editor
 block content
   h1 create post
   form(method='post',action='/blog/admin/create')
@@ -18,3 +17,4 @@ block content
       textarea(name='content', id='article-content')
     fieldset
       input(class='submit', type='submit', value='Create Post')
+  hr
