@@ -17,7 +17,7 @@ This is a website written in node.js. You can usually find it at [bclindner.com]
 
 This site requires a number of dependencies - use [Yarn](https://yarnpkg.com) to install them (just type `yarn` in the project directory).
 
-Additionally, this site requires a PostgreSQL installation. This package is configured to use a local development server and Heroku in production - this can be changed in the config.json file.
+Additionally, this site requires a PostgreSQL installation. This package is configured to use a local development server and use an environment variable in production - this can be changed in the config.json file.
 
 Starting the server is as easy as typing `yarn start`, or `node index.js`.
 
