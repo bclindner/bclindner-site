@@ -1,0 +1,19 @@
+# don't allow some bad crawlers
+
+User-agent: 008
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: PiplBot
+Disallow: /
+
+User-agent: voltron
+Disallow: /
+
+User-agent: *
+# don't crawl my admin pages
+Disallow: /blog/admin
+Disallow: /projects/admin
+Allow: /
