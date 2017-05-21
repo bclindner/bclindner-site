@@ -3,7 +3,7 @@ block head
   title blog - bclindner
 block content
   each post in posts
-    article
+    article(id=post.slug)
       section.blog-metadata
         h1.title
           a(href='../post/'+post.slug)=post.title
@@ -13,3 +13,12 @@ block content
       a(href='../post/'+post.slug)
         button full article &rarr;
     hr
+  p.center='page '+page
+  .paginator
+    if prev > 0
+      a(href=page-1)
+        button &larr; prev page
+    if next > 0
+      a(href=page+1)
+        button next page &rarr;
+  hr

@@ -8,7 +8,7 @@ module.exports = function (app, models) {
     res.redirect('/blog/page/1')
   })
 
-  // blog landing page
+  // /blog/page/X (blog landing page)
   app.get('/blog/page/:page', (req, res) => {
     var limit = 5
     var page = parseInt(req.params.page)
@@ -20,9 +20,8 @@ module.exports = function (app, models) {
       raw: true
     }).then(result => {
       var posts = result.rows
-      var countNext = result.count - offset
-      var countPrev = result.count - result.rows.length
-      console.log(countNext + ' ' + countPrev)
+      var countNext = result.count - (offset + 1)
+      var countPrev = result.count - (result.rows.length + 1)
       for (var i = 0; i < posts.length; i++) {
         // format date
         posts[i].createdAt = dateFormat(posts[i].createdAt, 'd mmmm yyyy')
@@ -31,6 +30,7 @@ module.exports = function (app, models) {
       }
       res.render('blog/postlist', {
         posts: posts,
+        count: result.count,
         next: countNext,
         prev: countPrev,
         page: page
