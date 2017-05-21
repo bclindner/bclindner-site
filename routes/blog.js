@@ -58,7 +58,6 @@ module.exports = function (app, models) {
   // blog admin panel
   app.get('/blog/admin', (req, res) => {
     post.findAll({
-      limit: 10,
       fields: ['title', 'slug'],
       order: [['createdAt', 'DESC']]
     }).then(posts => {
@@ -75,19 +74,25 @@ module.exports = function (app, models) {
       res.redirect('/blog/admin')
     })
   })
+  app.get('/blog/admin/delete/:slug', (req, res) => {
+    post.findOne({
+      where: {
+        slug: req.params.slug
+      },
+      fields: ['title', 'slug']
+    }).then((post) => {
+      res.render('blog/admin/deletePost', {post: post})
+    })
+  })
   // blog post deletion
-  app.post('/blog/admin/delete', bodyParser.urlencoded({extended: false}), (req, res) => {
+  app.post('/blog/admin/delete/:slug', (req, res) => {
     post.destroy({
       where: {
-        slug: req.body.slug
+        slug: req.params.slug
       }
     }).then(() => {
       res.redirect('/blog/admin')
     })
-  })
-  // blog post deletion confirm page
-  app.get('/blog/admin/delete/:slug', (req, res) => {
-    res.redirect('/blog/admin/deletePost', {slug: req.params.slug})
   })
   // blog post update
   app.get('/blog/admin/update/:slug', (req, res) => {

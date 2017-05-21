@@ -2,6 +2,14 @@ extends ../../layout
 block head
   title update post - bclindner
   include editor
+block breadcrumbs
+  a(href='/') bclindner
+  |  &rsaquo;&nbsp;
+  a(href='..') blog
+  |  &rsaquo;&nbsp;
+  a(href='.') admin
+  |  &rsaquo;&nbsp;
+  a(href='') update post
 block content
   h1 update post
   form(method='post',action='/blog/admin/update')

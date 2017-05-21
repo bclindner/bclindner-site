@@ -1,6 +1,12 @@
 extends ../../layout
 block head
   title blog administration - bclindner
+block breadcrumbs
+  a(href='/') bclindner
+  |  &rsaquo;&nbsp;
+  a(href='.') blog
+  |  &rsaquo;&nbsp;
+  a(href='') admin
 block content
   h1 blog administration
   a(href='/blog/admin/create'): button create new post
@@ -16,9 +22,8 @@ block content
           a(href='/blog/post/'+post.slug)=post.title
         td=post.slug
         td
-          form(method='post',action='/blog/admin/delete')
-            input(type='hidden',name='slug',value=post.slug)
-            input(type='submit',value='delete post')
+          a(href='/blog/admin/delete/'+post.slug)
+            button delete post
         td
           a(href='/blog/admin/update/'+post.slug)
             button update post

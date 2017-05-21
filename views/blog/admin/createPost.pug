@@ -2,6 +2,14 @@ extends ../../layout
 block head
   title create post - bclindner
   include editor
+block breadcrumbs
+  a(href='/') bclindner
+  |  &rsaquo;&nbsp;
+  a(href='..') blog
+  |  &rsaquo;&nbsp;
+  a(href='.') admin
+  |  &rsaquo;&nbsp;
+  a(href='') create post
 block content
   h1 create post
   form(method='post',action='/blog/admin/create')

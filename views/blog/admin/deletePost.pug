@@ -1,0 +1,17 @@
+extends ../../layout
+block head
+  title confirm delete - bclindner
+block breadcrumbs
+  a(href='/') bclindner
+  |  &rsaquo;&nbsp;
+  a(href='..') blog
+  |  &rsaquo;&nbsp;
+  a(href='.') admin
+  |  &rsaquo;&nbsp;
+  a(href='') delete post
+block content
+  form(method='post',action='')
+    h2.center really delete post?
+    p=post.title
+    p=post.slug
+    input(type='submit',value='yes, delete this post')
