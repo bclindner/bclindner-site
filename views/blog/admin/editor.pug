@@ -2,7 +2,9 @@ script(src='https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.0/tinymce.min.js'
 script.
   tinymce.init({
     selector: '#article-content',
-    plugins: 'image',
+    plugins: 'image fullscreen link',
     menubar: 'edit insert view format',
-    toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | image'
+    toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | image link | fullscreen',
+    height: 500,
+    content_css: '//fonts.googleapis.com/css?family=Assistant:200'
   })

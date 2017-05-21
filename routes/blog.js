@@ -42,7 +42,7 @@ module.exports = function (app, models) {
   // blog admin panel
   app.get('/blog/admin', (req, res) => {
     post.findAll({
-      limit: 5,
+      limit: 10,
       fields: ['title', 'slug'],
       order: [['createdAt', 'DESC']]
     }).then(posts => {

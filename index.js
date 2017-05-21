@@ -8,7 +8,7 @@ cluster.on('online', (worker) => {
   console.log('worker id ' + worker.id + ' online.')
 })
 cluster.on('exit', (worker, code, signal) => {
-  console.log('worker id ' + worker.id + ' exited with code ' + code + ".")
+  console.log('worker id ' + worker.id + ' exited with code ' + code + '.')
   // restart it
   cluster.fork()
 })
