@@ -9,6 +9,10 @@ gulp.task('default', () => {
   gulp.start('sass')
 })
 
+gulp.task('deploy', () => {
+  gulp.start('sass')
+})
+
 gulp.task('sass', () => {
   gulp.src('sass/*.sass')
     .pipe(sass())

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "postinstall": "gulp deploy"
+    "postinstall": "node_modules/.bin/gulp deploy"
   },
   "repository": "git+https://github.com/bclindner/bclindner-site.git",
   "engines": {
