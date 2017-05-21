@@ -2,8 +2,7 @@ extends ../../layout
 block head
   title create post - bclindner
   script(src='https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.0/tinymce.min.js')
-  script.
-    tinymce.init({selector: '#article-content'})
+  include tinymce
 block content
   h1 create post
   form(method='post',action='/blog/admin/create')
