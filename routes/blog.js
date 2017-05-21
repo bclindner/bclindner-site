@@ -10,19 +10,31 @@ module.exports = function (app, models) {
 
   // blog landing page
   app.get('/blog/page/:page', (req, res) => {
-    post.findAll({
+    var limit = 5
+    var page = parseInt(req.params.page)
+    var offset = (req.params.page - 1) * 5
+    post.findAndCountAll({
       order: [['createdAt', 'DESC']],
-      limit: 10,
-      offset: (parseInt(req.params.page) - 1) * 10,
+      limit: limit,
+      offset: offset,
       raw: true
-    }).then(posts => {
+    }).then(result => {
+      var posts = result.rows
+      var countNext = result.count - offset
+      var countPrev = result.count - result.rows.length
+      console.log(countNext + ' ' + countPrev)
       for (var i = 0; i < posts.length; i++) {
         // format date
         posts[i].createdAt = dateFormat(posts[i].createdAt, 'd mmmm yyyy')
         // truncate content
         posts[i].content = htmlTruncate(posts[i].content, 256)
       }
-      res.render('blog/postlist', {posts: posts})
+      res.render('blog/postlist', {
+        posts: posts,
+        next: countNext,
+        prev: countPrev,
+        page: page
+      })
     })
   })
 
