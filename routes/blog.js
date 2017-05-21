@@ -10,9 +10,9 @@ module.exports = function (app, models) {
 
   // /blog/page/X (blog landing page)
   app.get('/blog/page/:page', (req, res) => {
-    var limit = 5
+    var limit = 10
     var page = parseInt(req.params.page)
-    var offset = (req.params.page - 1) * 5
+    var offset = (req.params.page - 1) * limit
     post.findAndCountAll({
       order: [['createdAt', 'DESC']],
       limit: limit,
