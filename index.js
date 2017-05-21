@@ -1,28 +1,18 @@
-var express = require('express')
-var app = express()
-var helmet = require('helmet')
-var port = process.env.PORT || 8000
-var models = require('./models')
-var compression = require('compression')
-
-// express configuration
-// use Helmet
-app.use(helmet())
-// use compression
-app.use(compression())
-// use Pug
-app.set('view engine', 'pug')
-// static directory /static
-app.use('/static', express.static('static'))
-
-require('./routes/static.js')(app)
-require('./routes/blog.js')(app, models)
-
-// sync the database then activate the server
-console.log('syncing database...')
-models.sequelize.sync().then(() => {
-  console.log('starting server...')
-  app.listen(port, () => {
-    console.log('listening on port ' + port)
-  })
+var cluster = require('cluster')
+var workerCount = process.env.WEB_CONCURRENCY || require('os').cpus().length
+// cluster setup: use server.js as our worker)
+cluster.setupMaster({
+  exec: 'server.js'
 })
+cluster.on('online', (worker) => {
+  console.log('worker id ' + worker.id + ' online.')
+})
+cluster.on('exit', (worker, code, signal) => {
+  console.log('worker id ' + worker.id + ' exited with code ' + code + ".")
+  // restart it
+  cluster.fork()
+})
+// fork based on CPU count (or environment var)
+for (var i = 0; i < workerCount; i++) {
+  cluster.fork()
+}
