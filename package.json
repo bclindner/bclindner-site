@@ -6,9 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "build": "gulp"
+    "postinstall": "gulp deploy"
   },
   "repository": "git+https://github.com/bclindner/bclindner-site.git",
+  "engines": {
+    "node": "6.10.3"
+  },
   "keywords": [
     "website",
     "express",
@@ -23,9 +26,12 @@
   "homepage": "https://github.com/bclindner/bclindner-site#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "cluster": "^0.7.7",
     "compression": "^1.6.2",
+    "dateformat": "^2.0.0",
     "express": "^4.15.2",
     "helmet": "^3.6.0",
+    "html-truncate": "^1.2.2",
     "pg": "^6.2.2",
     "pg-hstore": "^2.3.2",
     "pug": "^2.0.0-rc.1",
@@ -35,8 +41,10 @@
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.3.1",
+    "gulp-mocha": "^4.3.1",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.1.2",
-    "mocha": "^3.4.1"
+    "mocha": "^3.4.1",
+    "superagent": "^3.5.2"
   }
 }
