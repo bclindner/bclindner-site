@@ -5,11 +5,19 @@ block content
   h1 blog administration
   a(href='/blog/admin/create'): button create new post
   h2 recent posts
-  ul
-  each post in recentPosts
-    li
-      a(href='/blog/post/'+post.slug)=post.title+' ('+post.slug+')'
-      form(method='post',action='/blog/admin/delete')
-        input(type='hidden',name='slug',value=post.slug)
-        input(type='submit',value='delete post')
-        a(href='/blog/admin/update/'+post.slug): input(type='button',value='update post')
+  table
+    tr
+      th title
+      th slug
+      th(colspan=2) controls
+    each post in recentPosts
+      tr
+        td
+          a(href='/blog/post/'+post.slug)=post.title
+        td=post.slug
+        td
+          form(method='post',action='/blog/admin/delete')
+            input(type='hidden',name='slug',value=post.slug)
+            input(type='submit',value='delete post')
+        td
+          a(href='/blog/admin/update/'+post.slug): input(type='button',value='update post')
