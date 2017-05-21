@@ -84,9 +84,10 @@ module.exports = function (app, models) {
     })
   })
   app.post('/blog/admin/update', bodyParser.urlencoded({extended: false}), (req, res) => {
+    if (req.body.slug === '') { req.body.slug = req.body.oldslug }
     post.update(req.body, {
       where: {
-        slug: req.body.oldSlug
+        slug: req.body.oldslug
       }
     }).then(() => {
       res.redirect('/blog/post/' + req.body.slug)

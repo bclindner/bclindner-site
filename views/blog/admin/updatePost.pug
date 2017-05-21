@@ -7,13 +7,13 @@ block content
   h1 update post
   form(method='post',action='/blog/admin/update')
     fieldset
-      input(type='hidden', name='old-slug', value=post.slug)
+      input(type='hidden', name='oldslug', value=post.slug)
       label(for='title') Title:
       input(type='text', name='title', value=post.title, required)
       label(for='author') Author:
       input(type='text', name='author', value=post.author, required)
       label(for='slug') Post Slug:
-      input(type='text', name='slug', placeholder=post.slug, required)
+      input(type='text', name='slug', placeholder=post.slug)
     fieldset
       label(for='content') Content:
       textarea(name='content', id='article-content')=post.content
