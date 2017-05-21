@@ -6,17 +6,16 @@ This is a website written in node.js. You can usually find it at [bclindner.com]
 
 * Best practices: Uses a [style guide](https://standardjs.com/), a [well-maintained ORM](https://www.npmjs.com/package/sequelize), does unit tests with [a popular framework](http://mochajs.org/), etc.
 * High-performance: most pages load in under a second at any reasonable connection, no cache, before images.
+* Scalability: Cluster computing using the node [cluster](https://nodejs.org/api/cluster.html) library allows multicore usage
 * Rudimentary blogging & portfolio management system: because WordPress and I don't get along.
   * TinyMCE for WYSIWYG blog post manipulation
   * Simple, easy-to-use UI and intuitive API system at frontend
   * Sequelize ORM interacting with PostgreSQL using simple, readable business code at backend
-  * CRUD, REST, all those buzzwords
+  * CRUD, REST, other best practices, all that jazz
 
 ## Installing and Using
 
-This site requires a number of dependencies - use [Yarn](https://yarnpkg.com) to install them:
-
-`yarn install`
+This site requires a number of dependencies - use [Yarn](https://yarnpkg.com) to install them (just type `yarn` in the project directory).
 
 Additionally, this site requires a PostgreSQL installation. This package is configured to use a local development server and Heroku in production - this can be changed in the config.json file.
 
