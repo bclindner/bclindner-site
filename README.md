@@ -32,7 +32,9 @@ The site code is set up with the following structure:
 * `sass` folder: holds uncompiled SASS code
 * `static` folder: holds static content e.g. images, compiled SASS, downloadable files, etc.
 * `views` folder: holds templates for all pages
+* `test` folder: holds unit tests for the site
 * `gulpfile.js`: task automation scripts
-* `index.js`: initial code
+* `index.js`: initial cluster code
+* `server.js`: express app initialization & configuration; the app's "real" index.js
 
 Keep this in mind when reading and working with this code.
