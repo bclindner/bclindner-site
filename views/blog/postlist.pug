@@ -4,20 +4,24 @@ block head
 block breadcrumbs
   a(href='/') bclindner
   |  &rsaquo;&nbsp;
-  a(href='') blog
+  a(href='./1') blog
 block content
   h1 Blog
   hr
-  each post in posts
-    include post
-    a(href='../post/'+post.slug)
-      button full article &rarr;
-  if page != 1 || next > 0
-    p.center='page '+page
-    .paginator
-      if page != 1
-        a(href=page-1)
-          button &larr; prev page
-      if next > 0
-        a(href=page+1)
-          button next page &rarr;
+  if posts.length
+    each post in posts
+      include post
+      a(href='../post/'+post.slug)
+        button full article &rarr;
+      hr
+    if page != 1 || next > 0
+      p.center='page '+page
+      .paginator
+        if page != 1
+          a(href=page-1)
+            button &larr; prev page
+        if next > 0
+          a(href=page+1)
+            button next page &rarr;
+  else
+    h2.center no posts found
