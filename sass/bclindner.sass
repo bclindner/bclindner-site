@@ -90,17 +90,22 @@ h1
   h1
     font-size: 8em
 // button
-button,input[type=submit],input[type=button]
-  background-color: darken($light,15%)
+@mixin btn($color, $text)
+  background-color: darken($color,15%)
   border: none
   margin: 1em 0
   padding: 1em
   border-radius: 2px
+  color: $text
   &:hover
-    background-color: darken($light,10%)
-    box-shadow: inset 0 0 8px 0 darken($light,25%)
-    text-shadow: 4px 4px 8px darken($light,25%)
+    background-color: darken($color,10%)
+    box-shadow: inset 0 0 8px 0 darken($color,25%)
+    text-shadow: 4px 4px 8px darken($color,25%)
     transition: $transition-time
+button,input[type=submit],input[type=button]
+  @include btn($accent, $light)
+button.red
+  @include btn(#d76060, $light)
 // form stuff
 fieldset
   border: none
@@ -128,7 +133,7 @@ table
 main a
   color: #444
   &:visited
-    color: #222
+    color: #666
   &:hover
     color: #aaa
 .editor
