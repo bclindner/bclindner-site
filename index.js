@@ -1,4 +1,5 @@
 var cluster = require('cluster')
+var models = require('./models')
 var workerCount = process.env.WEB_CONCURRENCY || require('os').cpus().length
 // cluster setup: use server.js as our worker)
 cluster.setupMaster({
@@ -12,7 +13,9 @@ cluster.on('exit', (worker, code, signal) => {
   // restart it
   cluster.fork()
 })
-// fork based on CPU count (or environment var)
-for (var i = 0; i < workerCount; i++) {
-  cluster.fork()
-}
+// sync server and fork based on CPU count (or environment var)
+models.sequelize.sync().then(() => {
+  for (var i = 0; i < workerCount; i++) {
+    cluster.fork()
+  }
+})

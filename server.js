@@ -25,12 +25,8 @@ require('./routes/blogadmin.js')(app,models)
 // error routes
 require('./routes/errors.js')(app)
 
-// sync the database then activate the server
-console.log('syncing database...')
-models.sequelize.sync().then(() => {
-  console.log('starting server...')
-  // hand off app to module.exports for tests
-  module.exports = app.listen(port, () => {
-    console.log('listening on port ' + port)
-  })
+console.log('starting server...')
+// hand off app to module.exports for tests
+module.exports = app.listen(port, () => {
+  console.log('listening on port ' + port)
 })
