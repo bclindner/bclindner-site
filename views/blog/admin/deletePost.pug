@@ -4,14 +4,16 @@ block head
 block breadcrumbs
   a(href='/') bclindner
   |  &rsaquo;&nbsp;
-  a(href='..') blog
+  a(href='../..') blog
   |  &rsaquo;&nbsp;
-  a(href='.') admin
+  a(href='..') admin
   |  &rsaquo;&nbsp;
-  a(href='') delete post
+  a delete post
 block content
-  form(method='post',action='')
-    h2.center really delete post?
-    p=post.title
-    p=post.slug
-    input(type='submit',value='yes, delete this post')
+  form(method='post',action='').centerDialog
+    h2 really delete post?
+    p
+      b=post.title
+      |  by 
+      | #{post.slug}
+    input(type='submit',value='yes, delete this post').red.center
