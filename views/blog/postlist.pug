@@ -4,17 +4,17 @@ block head
 block breadcrumbs
   a(href='/') bclindner
   |  &rsaquo;&nbsp;
-  a(href='./1') blog
+  a(href='..') blog
 block content
   h1 Blog
-  hr
   if posts.length
     each post in posts
+      hr
       include post
       a(href='../post/'+post.slug)
         button full article &rarr;
-      hr
     if page != 1 || next > 0
+      hr
       p.center='page '+page
       .paginator
         if page != 1

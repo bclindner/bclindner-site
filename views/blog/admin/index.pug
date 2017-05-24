@@ -10,17 +10,15 @@ block breadcrumbs
 block content
   h1 blog administration
   a(href='/blog/admin/create'): button create new post
-  h2 recent posts
+  h2 edit posts
   table
     tr
       th title
-      th slug
       th(colspan=2) controls
     each post in recentPosts
       tr
         td
           a(href='/blog/post/'+post.slug)=post.title
-        td=post.slug
         td
           a(href='/blog/admin/delete/'+post.slug)
             button.red delete post
