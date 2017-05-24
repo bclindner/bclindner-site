@@ -1,12 +1,18 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "devdb",
-    "database": "bcl_devel",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "postgres": {
+      "username": "postgres",
+      "password": "devdb",
+      "database": "bcl_devel",
+      "host": "127.0.0.1",
+      "dialect": "postgres"
+    },
+    "redis": {
+    }
   },
   "production": {
-   "use_env_variable": "DATABASE_URL"
+    "postgres": {
+     "use_env_variable": "DATABASE_URL"
+    }
   }
 }
