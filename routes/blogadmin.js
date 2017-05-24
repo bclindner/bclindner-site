@@ -29,7 +29,7 @@ module.exports = function (app, models) {
       where: {
         slug: req.params.slug
       },
-      fields: ['title', 'slug']
+      fields: ['title', 'author']
     }).then((post) => {
       res.render('blog/admin/deletePost', {post: post})
     })
