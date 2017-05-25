@@ -1,0 +1,26 @@
+version: "2"
+services:
+  node:
+    build: ./app
+    volumes:
+      - ./app:/app
+    links:
+      - postgres
+    depends_on:
+      - "postgres"
+    environment:
+      POSTGRES_URL: "postgres://postgres@postgres/postgres"
+      WORKER_COUNT: 1
+    restart: always
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - node
+    links:
+      - node
+    restart: always
+  postgres:
+    image: postgres
+    restart: always

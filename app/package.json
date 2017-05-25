@@ -15,8 +15,7 @@
   "keywords": [
     "website",
     "express",
-    "sequelize",
-    "heroku"
+    "sequelize"
   ],
   "author": "bclindner",
   "license": "ISC",

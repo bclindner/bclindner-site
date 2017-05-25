@@ -1,6 +1,6 @@
 var cluster = require('cluster')
 var models = require('./models')
-var workerCount = process.env.WEB_CONCURRENCY || require('os').cpus().length
+var workerCount = process.env.WORKER_COUNT || require('os').cpus().length
 // cluster setup: use server.js as our worker)
 cluster.setupMaster({
   exec: 'server.js'
