@@ -6,8 +6,6 @@
       "database": "bcl_devel",
       "host": "127.0.0.1",
       "dialect": "postgres"
-    },
-    "redis": {
     }
   },
   "production": {
