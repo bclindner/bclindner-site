@@ -11,6 +11,7 @@ RUN rm -rf node_modules
 # install and run yarn to install our packages
 # RUN npm install -g yarn
 RUN yarn && \
+    yarn global add nodemon && \
     yarn cache clean
 
 EXPOSE 8000
