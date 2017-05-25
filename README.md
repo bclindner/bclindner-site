@@ -4,7 +4,7 @@ This is a website written in node.js. You can usually find it at [bclindner.com]
 
 ## Features
 
-* Best practices: Uses a [style guide](https://standardjs.com/), a [well-maintained ORM](https://www.npmjs.com/package/sequelize), is developed using [Docker](docker.com) for more consistent deployments, etc.
+* Best practices: Uses a [style guide](https://standardjs.com/), a [well-maintained ORM](https://www.npmjs.com/package/sequelize), is developed using [Docker](https://www.docker.com) for more consistent deployments, etc.
 * High-performance: most pages load in under a second at any reasonable connection, no cache, before images.
 * Scalability: Cluster computing using the node [cluster](https://nodejs.org/api/cluster.html) library allows multicore usage and scalability
 * Rudimentary blogging & portfolio management system: because WordPress and I don't get along.
@@ -20,7 +20,7 @@ This project uses Docker Compose to manage the Node project, an NGINX proxy serv
 docker-compose up
 ```
 
-This should build run the site - it will be available on localhost:80 when complete.
+This should build and run the site - it will be available on localhost:80 when complete.
 
 ## Code structure
 
