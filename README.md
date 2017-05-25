@@ -20,7 +20,7 @@ This project uses Docker Compose to manage the Node project, an NGINX proxy serv
 docker-compose up
 ```
 
-This should build run the site - it will be available on localhost:80 when complete.
+This should build and run the site - it will be available on localhost:80 when complete.
 
 ## Code structure
 
