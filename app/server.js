@@ -4,13 +4,10 @@ var app = express()
 var helmet = require('helmet')
 var port = process.env.PORT || 8000
 var models = require('./models')
-var compression = require('compression')
 
 // express configuration
 // use Helmet
 app.use(helmet())
-// use compression
-app.use(compression())
 // use Pug
 app.set('view engine', 'pug')
 // static directory /static

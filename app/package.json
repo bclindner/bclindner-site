@@ -25,7 +25,6 @@
   "homepage": "https://github.com/bclindner/bclindner-site#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
-    "compression": "^1.6.2",
     "dateformat": "^2.0.0",
     "express": "^4.15.2",
     "helmet": "^3.6.0",
