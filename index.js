@@ -14,7 +14,9 @@ cluster.on('exit', (worker, code, signal) => {
   cluster.fork()
 })
 // sync server and fork based on CPU count (or environment var)
+process.stdout.write('syncing database...')
 models.sequelize.sync().then(() => {
+  process.stdout.write('done.\nstarting workers...\n')
   for (var i = 0; i < workerCount; i++) {
     cluster.fork()
   }
