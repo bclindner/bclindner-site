@@ -1,5 +1,5 @@
 # coded using boron LTS, so we'll stick with that
-FROM node:boron
+FROM node:boron-alpine
 
 # set our work dir
 WORKDIR /app

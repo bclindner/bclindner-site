@@ -22,5 +22,5 @@ services:
       - node
     restart: always
   postgres:
-    image: postgres
+    image: postgres:alpine
     restart: always
