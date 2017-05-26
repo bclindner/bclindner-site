@@ -1,7 +1,9 @@
 version: "2"
 services:
   node:
-    build: ./app
+    build: 
+      context: ./app
+      dockerfile: Dockerfile-dev # change this to Dockerfile-dev; it'll use nodemon
     volumes:
       - ./app:/app
     links:
@@ -15,7 +17,7 @@ services:
   nginx:
     build: ./nginx
     ports:
-      - "80:80"
+      - "80:31415"
     depends_on:
       - node
     links:
