@@ -1,47 +1,5 @@
-# bclindner's website
+# bclindner.com unfinished site design, 2017
 
-This is a website written in node.js. You can usually find it at [bclindner.com](bclindner.com). It serves as a portfolio and professional blog, for the most part.
+This is an old unfinished site design I had scrapped. It was going to serve as a portfolio site and a custom blog that I could manage through my own admin page, but I decided the work necessary to design, develop, and maintain this would be more trouble than it's worth. The site is semi-functional, but I wouldn't deploy it to production as it is.
 
-## Features
-
-* Best practices: Uses a [style guide](https://standardjs.com/), a [well-maintained ORM](https://www.npmjs.com/package/sequelize), is developed using [Docker](https://www.docker.com) for more consistent deployments, etc.
-* High-performance: most pages load in under a second at any reasonable connection, no cache, before images.
-* Scalability: Cluster computing using the node [cluster](https://nodejs.org/api/cluster.html) library allows multicore usage and scalability
-* Rudimentary blogging & portfolio management system: because WordPress and I don't get along.
-  * TinyMCE for WYSIWYG blog post manipulation
-  * Simple, easy-to-use UI and intuitive API system at frontend
-  * Sequelize ORM interacting with PostgreSQL using simple, readable business code at backend
-
-## Using
-
-This project uses Docker Compose to manage the Node project, an NGINX proxy server, and a PostgreSQL database server. To build and run this project, install Docker and Docker Compose (which usually comes with it), and run:
-
-```sh
-docker-compose up
-```
-
-This should build and run the site - it will be available on localhost:80 when complete.
-
-## Code structure
-
-The site code is set up with the following structure:
-* `app` folder: holds the main Node.js project, where most of the project's code is
-  * `config` folder: holds the configuration for Sequelize
-  * `migrations` folder: holds migrations for Sequelize (ignore this)
-  * `models` folder: holds the blogPosts and project object model
-  * `routes` folder: holds all express routes
-  * `sass` folder: holds uncompiled SASS code
-  * `static` folder: holds static content e.g. images, compiled SASS, downloadable files, etc.
-  * `views` folder: holds templates for all pages
-  * `test` folder: holds unit tests for the site
-  * `gulpfile.js`: task automation scripts
-  * `index.js`: initial cluster code
-  * `server.js`: express app initialization & configuration; the app's "real" index.js
-  * `Dockerfile`: configuration file to Dockerize this app
-* `nginx` folder: holds the nginx reverse proxy server
-  * `nginx.conf`: the custom config for the nginx server
-  * `Dockerfile`: configuration file to Dockerize this app
-* `docker-compose.yml`: the Docker Compose file for full-stack deployment of this program
-* `README.md`: this file
-
-Keep this in mind when reading and working with this code.
+The site is a Dockerized node.js app with an nginx proxy which I'd for security, caching, SSL, etc., as well as a Postgres database being manipulated with [Sequelize](https://github.com/sequelize/sequelize) to handle blog content and other things.
